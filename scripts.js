@@ -1,11 +1,40 @@
+let moveS1x = 200;
+let moveS1y = 200;
+
+let moveS2x = 200;
+let moveS2y = 200;
+
+let limitTop = 0;
+let limitBottom = 400;
+let limtRight = 400;
+let limitLeft = 0;
 function setup() {
         createCanvas(400,400)
 }
 
 function draw () {
+
     background("#a0daa9")
-    smileyFaceTimo(250, 200);
-    smileFaceCalin(120, 200);
+
+    if (moveS1y < limitTop) {
+        moveS1y *= -1;
+    }
+
+    if (moveS1y > limitBottom) {
+        moveS1y *= -1;
+    }
+
+    if (moveS1x > limitRight) {
+        moveS1x *= -1;
+    }
+
+    if (moveS1x < limitLeft) {
+        moveS1x *= -1;
+    }
+    smileyFaceTimo(moveS1x++, moveS1y++);
+    smileFaceCalin(moveS2x++, moveS2y++);
+
+   
 }
 
 function smileyFaceTimo (x, y) {
