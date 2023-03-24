@@ -8,9 +8,9 @@ let speedS1 = 3;
 let speedS2 = 2; 
 
 let limitTop = 0;
-let limitBottom = 230;
-let limitRight = 380;
-let limitLeft = 15;
+let limitBottom = 400;
+let limitRight = 400;
+let limitLeft = 0;
 
 let sensS1x = 1;
 let sensS1y = 1;
