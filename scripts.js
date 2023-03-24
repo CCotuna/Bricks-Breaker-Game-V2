@@ -4,28 +4,28 @@ function setup() {
 
 function draw () {
     background("#a0daa9")
-    smileyFaceTimo();
+    smileyFaceTimo(250, 200);
     smileFaceCalin();
 }
 
-function smileyFaceTimo () {
+function smileyFaceTimo (x, y) {
     //head
     fill ("#99999")
-    circle(200, 350, 30);
+    circle(x, y+150, 30);
     //eyes
     fill ("#000000")
-    circle(205, 346, 4);
-    circle(196, 346, 4);
+    circle(x+5, y+146, 4);
+    circle(x-4, y+146, 4);
     //pupiles
 
     //mouth
     fill ("#000000")
-    arc(200, 352, 20, 20, 0, Math.PI);
+    arc(x, y+152, 20, 20, 0, Math.PI);
     
     fill ("#fffff")
-    rect(200, 352.5, 4, 4);
+    rect(x, y+152.5, 4, 4);
     fill ("#fffff")
-    rect(196, 352.5, 4, 4);
+    rect(x-4, y+152.5, 4, 4);
     
     //sprancene
     //line(192, 343, 330,290, );
