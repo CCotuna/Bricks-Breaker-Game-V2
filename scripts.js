@@ -34,7 +34,7 @@ function smileyFaceTimo (x, y) {
 function smileFaceCalin(x, y) {
 //skin
 fill("#fe00f6");
-circle(x,y+160,35);
+circle(x,y+160,30);
 
 //right eye
 circle(x+5,y+157,4);
