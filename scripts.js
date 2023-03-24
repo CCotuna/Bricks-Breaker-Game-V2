@@ -4,9 +4,12 @@ let moveS1y = 200;
 let moveS2x = 200;
 let moveS2y = 200;
 
-let limitTop = 15;
-let limitBottom = 385;
-let limtRight = 385;
+let speedS1 = 3;
+let speedS2 = 2; 
+
+let limitTop = 0;
+let limitBottom = 230;
+let limitRight = 380;
 let limitLeft = 15;
 
 let sensS1x = 1;
@@ -14,7 +17,9 @@ let sensS1y = 1;
 let sensS2x = 1;
 let sensS2y = 1;
 
-let 
+let rayS1 = 15;
+let rayS2 = 100;
+
 function setup() {
         createCanvas(400,400)
 }
@@ -22,43 +27,37 @@ function setup() {
 function draw () {
 
     background("#a0daa9")
-    //verificare limita Top S1
-    if (moveS1y < limitTop) {
-        //schimbare de sens
-        sensS1y *= -1
-    }
+    //verificare limmita Top S1
+  if (moveS1y < limitTop+rayS1) {
+    sensS1y = 1; //schimbare de sens
+  }
+  //verificare limmita Bottom S1
+  if (moveS1y > limitBottom-rayS1) {
+    sensS1y = -1; //schimbare de sens
+  }
+  //verificare limmita Left S1
+  if (moveS1x < limitLeft+rayS1) {
+    sensS1x = 1; //schimbare de sens
+  }
+  //verificare limmita Right S1
+  if (moveS1x > limitRight-rayS1) {
+    sensS1x = -1; //schimbare de sens
+  }
 
-    //verificare limita Bottom S1
-    if (moveS1y > limitBottom) {
-        //schimbare de sens
-        sensS1y *= -1;
-    }
+    moveS1x += sensS1x*speedS1;
+    moveS1y += sensS1y*speedS1;
 
-     //verificare limita Left S1
-     if (moveS1x < limitLeft) {
-        //schimbare de sens
-        moveS1x *= -1;
-    }
-    
-    //verificare limita Right S1
-    if (moveS1x > limitRight) {
-        //schimbare de sens
-        sensS1x *= -1;
-    }
+    smileyFaceTimo(moveS1x, moveS1y, rayS1*2);
+    smileFaceCalin(moveS2x, moveS2y, rayS2);
 
-    moveS1x += sensS1x;
-    moveS1y += sensS1y;
-
-    smileyFaceTimo(moveS1x++, moveS1y++);
-    smileFaceCalin(moveS2x++, moveS2y++);
-
+    console.log(moveS1x, moveS1y)
    
 }
 
-function smileyFaceTimo (x, y) {
+function smileyFaceTimo (x, y, d) {
     //head
     fill ("#99999")
-    circle(x, y+150, 30);
+    circle(x, y+150, d);
     //eyes
     fill ("#000000")
     circle(x+5, y+146, 4);
